@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+
+@font-face {
+  font-family: calcFont;
+  src: url(calc.ttf);
+}
+
+$colorMain : hsl(201, 70%, 60%);
+$colorMainHover : hsl(201, 70%, 65%);
+$colorMainActive : hsl(201, 70%, 70%);
+$colorShadow : hsl(201, 70%, 50%);
+$colorDisplay : hsl(249, 6%, 45%);
+$colorText : hsl(40, 23%, 97%);
+$colorDisplayText : hsl(240, 17%, 14%);
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.calculator {
+  padding: .25rem;
+  background-color: $colorMain;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.384),
+              inset 1px 2px 2px 0px rgba(255, 255, 255, 0.5);;
+
+  .display {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: .65rem;
+    margin: .5rem;
+    font-family: calcFont;
+    font-size: 5rem;
+    text-align: right;
+    background-color: $colorDisplay;
+    height: 5rem;
+    border-radius: .5rem;
+    box-shadow: inset 2px 3px 3px 0px rgba(37, 37, 37, 0.5);
+    
+    &::after {
+      content: '88888888';
+      position: absolute;
+      color: hsl(249, 6%, 50%);
+      z-index: -1;
+    }
+  }
+
+  .keyboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .4rem;
+    margin: 1rem;
+
+    &__btn {
+      user-select: none;
+      cursor: pointer;
+      color: $colorText;
+      font-size: 2rem;
+      font-weight: 800;
+      background-color: $colorMain;
+      padding: .5rem;
+      border-radius: 1.8rem;
+      border: none;
+      box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.384),
+                  inset 1px 2px 2px 0px rgba(255, 255, 255, 0.5);
+
+      transition-property: background-color, box-shadow;
+      transition-timing-function: ease;
+      transition-duration: 150ms;
+      
+      &:hover {
+        background-color: $colorMainHover;
+      }
+
+      &:active {
+        background-color: $colorMainActive;
+        box-shadow: inset 2px 3px 3px 0px rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+}

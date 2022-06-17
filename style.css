@@ -27,6 +27,29 @@ body {
   border-radius: 1rem;
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.384), inset 1px 2px 2px 0px rgba(255, 255, 255, 0.5);
 }
+.calculator .previousDisplay {
+  text-align: right;
+  font-family: calcFont;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+  background-color: hsl(249deg, 6%, 45%);
+  height: 40px;
+  width: inherit;
+  margin: 0.5rem;
+  padding-right: 0.65rem;
+  border-radius: 0.5rem;
+  box-shadow: inset 2px 3px 3px 0px rgba(37, 37, 37, 0.5);
+}
+.calculator .previousDisplay::after {
+  content: "8888888888888888";
+  position: absolute;
+  color: hsl(249deg, 6%, 50%);
+  z-index: -1;
+}
 .calculator .display {
   position: relative;
   z-index: 2;

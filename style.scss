@@ -39,6 +39,33 @@ body {
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.384),
               inset 1px 2px 2px 0px rgba(255, 255, 255, 0.5);;
 
+  .previousDisplay {
+    text-align: right;
+    font-family: calcFont;
+    font-size: 2.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    position: relative;
+    z-index: 2;
+    background-color: $colorDisplay;
+    height: 40px;
+    width: inherit;
+    margin: .5rem;
+    padding-right: .65rem;
+    border-radius: .5rem;
+    box-shadow: inset 2px 3px 3px 0px rgba(37, 37, 37, 0.5);
+    
+    &::after {
+      content: '8888888888888888';
+      position: absolute;
+      color: hsl(249, 6%, 50%);
+      z-index: -1;
+    }
+  }
+
   .display {
     position: relative;
     z-index: 2;

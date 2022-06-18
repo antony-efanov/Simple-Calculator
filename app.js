@@ -11,6 +11,7 @@ const btnDIVISION = document.querySelector('#division');
 const btnMULTIPLY = document.querySelector('#multiply');
 const btnMINUS = document.querySelector('#minus');
 const btnPLUS = document.querySelector('#plus');
+const btnDOT = document.querySelector('#dot');
 
 const btnRESULT = document.querySelector('#result');
 
@@ -21,26 +22,32 @@ function assignNumberOne() {
   numbers.forEach(number => {
     number.addEventListener('click', () => {
 
-      if (currentNumber.length >= 8) {
-        console.log('too much')
-        console.log(currentNumber)
-        return
-      }
-      
+      if (currentNumber.length >= 8) return
+
       currentNumber += number.textContent;
       document.querySelector('#display').textContent = currentNumber
     });
   });
+
+  btnDOT.addEventListener('click', () => {
+    if (currentNumber != '') {
+
+      if (currentNumber.includes('.')) {
+        return
+      }
+      currentNumber += '.';
+      document.querySelector('#display').textContent = currentNumber;
+    }
+  });
+
 };
 
 function clearScreens() {
   btnCE.addEventListener('click', () => {
-    if (previosNumber || currentNumber) {
       previosNumber = '';
       currentNumber = '';
       document.querySelector('#display').textContent = '';
       document.querySelector('#previousDisplay').textContent = '';
-    }
   });
 };
 
@@ -107,8 +114,9 @@ function displayResult() {
           document.querySelector('#previousDisplay').textContent = '';
           document.querySelector('#display').textContent = result;
           break
-        
       }
+      previosNumber = '';
+      currentNumber = '';
     }
   })
 }
@@ -120,4 +128,3 @@ choseOperator();
 clearScreens();
 
 assignNumberOne();
-
